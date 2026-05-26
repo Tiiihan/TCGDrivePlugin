@@ -18,9 +18,11 @@ Release/
 *.wfx64
 
 # Packaged archives
-distributed_zip/
 _compressed/
+_zipcheck/
 *.zip
+!distributed_zip/
+!distributed_zip/*.zip
 
 # Logs and temporary files
 *.log
