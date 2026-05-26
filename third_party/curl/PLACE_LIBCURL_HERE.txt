@@ -1,0 +1,8 @@
+Place libcurl Windows binaries here.
+
+Expected layout:
+  third_party/curl/include/curl/curl.h
+  third_party/curl/lib/libcurl.lib
+  third_party/curl/bin/libcurl.dll  (copy next to TCGDrivePlugin.wfx after build)
+
+Recommended source: https://curl.se/windows/  (64-bit Windows builds).

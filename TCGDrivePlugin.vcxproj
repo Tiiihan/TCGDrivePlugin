@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{B2E1F8A1-3F7C-4E9D-9C3D-1A2B3C4D5E6F}</ProjectGuid>
+    <RootNamespace>TCGDrivePlugin</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>TCGDrivePlugin</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(QTDIR)\msvc2022_64\lib\cmake\Qt6\qt6.props" Condition="Exists('$(QTDIR)\msvc2022_64\lib\cmake\Qt6\qt6.props')" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetExt>.wfx64</TargetExt>
+    <OutDir>$(ProjectDir)x64\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)x64\$(Configuration)\obj\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetExt>.wfx64</TargetExt>
+    <OutDir>$(ProjectDir)x64\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)x64\$(Configuration)\obj\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_USRDLL;TCGDRIVEPLUGIN_EXPORTS;_DEBUG;UNICODE;_UNICODE;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)sdk;$(ProjectDir)generated;$(ProjectDir)third_party\curl\include;$(ProjectDir)third_party\json\include;$(ProjectDir)third_party\openssl\include;$(ProjectDir)third_party\webview2\include;$(QTDIR)\msvc2022_64\include;$(QTDIR)\msvc2022_64\include\QtCore;$(QTDIR)\msvc2022_64\include\QtGui;$(QTDIR)\msvc2022_64\include\QtWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <AdditionalOptions>/utf-8 /Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)third_party\curl\lib;$(ProjectDir)third_party\openssl\lib;$(QTDIR)\msvc2022_64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libcurl.lib;libssl.lib;libcrypto.lib;Qt6Core.lib;Qt6Gui.lib;Qt6Widgets.lib;Crypt32.lib;Shell32.lib;ole32.lib;$(ProjectDir)third_party\webview2\lib\x64\WebView2LoaderStatic.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>$(ProjectDir)src\core\TCGDrivePlugin.def</ModuleDefinitionFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_USRDLL;TCGDRIVEPLUGIN_EXPORTS;NDEBUG;UNICODE;_UNICODE;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)sdk;$(ProjectDir)generated;$(ProjectDir)third_party\curl\include;$(ProjectDir)third_party\json\include;$(ProjectDir)third_party\openssl\include;$(ProjectDir)third_party\webview2\include;$(QTDIR)\msvc2022_64\include;$(QTDIR)\msvc2022_64\include\QtCore;$(QTDIR)\msvc2022_64\include\QtGui;$(QTDIR)\msvc2022_64\include\QtWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <AdditionalOptions>/utf-8 /Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)third_party\curl\lib;$(ProjectDir)third_party\openssl\lib;$(QTDIR)\msvc2022_64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libcurl.lib;libssl.lib;libcrypto.lib;Qt6Core.lib;Qt6Gui.lib;Qt6Widgets.lib;Crypt32.lib;Shell32.lib;ole32.lib;$(ProjectDir)third_party\webview2\lib\x64\WebView2LoaderStatic.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>$(ProjectDir)src\core\TCGDrivePlugin.def</ModuleDefinitionFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="src\core\plugin.h" />
+    <ClInclude Include="src\core\filesystem_bridge.h" />
+    <ClInclude Include="src\auth\oauth_manager.h" />
+    <ClInclude Include="src\auth\token_store.h" />
+    <ClInclude Include="src\auth\webview2_auth_window.h" />
+    <ClInclude Include="src\api\drive_client.h" />
+    <ClInclude Include="src\api\drive_models.h" />
+    <ClInclude Include="src\api\http_client.h" />
+    <ClInclude Include="src\api\i_drive_client.h" />
+    <ClInclude Include="src\api\metadata_cache.h" />
+    <ClInclude Include="src\api\stub_drive_client.h" />
+    <ClInclude Include="src\gui\auth_dialog.h" />
+    <ClInclude Include="src\gui\settings_dialog.h" />
+    <ClInclude Include="src\gui\progress_dialog.h" />
+    <ClInclude Include="src\gui\gui_manager.h" />
+    <ClInclude Include="src\storage\config_manager.h" />
+    <ClInclude Include="src\utils\logger.h" />
+    <ClInclude Include="src\utils\string_utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\core\plugin.cpp" />
+    <ClCompile Include="src\core\filesystem_bridge.cpp" />
+    <ClCompile Include="src\auth\oauth_manager.cpp" />
+    <ClCompile Include="src\auth\token_store.cpp" />
+    <ClCompile Include="src\auth\webview2_auth_window.cpp" />
+    <ClCompile Include="src\api\drive_client.cpp" />
+    <ClCompile Include="src\api\http_client.cpp" />
+    <ClCompile Include="src\api\metadata_cache.cpp" />
+    <ClCompile Include="src\api\stub_drive_client.cpp" />
+    <ClCompile Include="src\gui\auth_dialog.cpp" />
+    <ClCompile Include="src\gui\settings_dialog.cpp" />
+    <ClCompile Include="src\gui\progress_dialog.cpp" />
+    <ClCompile Include="src\gui\gui_manager.cpp" />
+    <ClCompile Include="src\storage\config_manager.cpp" />
+    <ClCompile Include="src\utils\logger.cpp" />
+    <ClCompile Include="src\utils\string_utils.cpp" />
+    <ClCompile Include="$(QtGeneratedDir)\qrc_translations.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\core\TCGDrivePlugin.def" />
+    <None Include="resources\settings_dialog.ui" />
+    <None Include="resources\progress_dialog.ui" />
+    <None Include="resources\translations.qrc" />
+    <None Include="resources\translations\plugin_uk.ts" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$(QTDIR)\msvc2022_64\lib\cmake\Qt6\qt6.targets" Condition="Exists('$(QTDIR)\msvc2022_64\lib\cmake\Qt6\qt6.targets')" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <PropertyGroup>
+    <QtBinDir>$(QTDIR)\msvc2022_64\bin</QtBinDir>
+    <QtGeneratedDir>$(ProjectDir)generated</QtGeneratedDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <QtUiFile Include="$(ProjectDir)resources\settings_dialog.ui">
+      <GeneratedFile>$(QtGeneratedDir)\ui_settings_dialog.h</GeneratedFile>
+    </QtUiFile>
+    <QtUiFile Include="$(ProjectDir)resources\progress_dialog.ui">
+      <GeneratedFile>$(QtGeneratedDir)\ui_progress_dialog.h</GeneratedFile>
+    </QtUiFile>
+    <QtMocHeader Include="$(ProjectDir)src\gui\auth_dialog.h">
+      <GeneratedFile>$(QtGeneratedDir)\moc_auth_dialog.cpp</GeneratedFile>
+    </QtMocHeader>
+    <QtMocHeader Include="$(ProjectDir)src\gui\settings_dialog.h">
+      <GeneratedFile>$(QtGeneratedDir)\moc_settings_dialog.cpp</GeneratedFile>
+    </QtMocHeader>
+    <QtMocHeader Include="$(ProjectDir)src\gui\progress_dialog.h">
+      <GeneratedFile>$(QtGeneratedDir)\moc_progress_dialog.cpp</GeneratedFile>
+    </QtMocHeader>
+  </ItemGroup>
+  <Target Name="QtPrepareGeneratedDir" BeforeTargets="QtRunUic;QtRunMoc">
+    <MakeDir Directories="$(QtGeneratedDir)" />
+  </Target>
+  <Target Name="QtRunUic" BeforeTargets="ClCompile" Inputs="@(QtUiFile)" Outputs="@(QtUiFile->'%(GeneratedFile)')">
+    <Message Text="uic %(QtUiFile.Filename)%(QtUiFile.Extension)" Importance="high" />
+    <Exec Command="&quot;$(QtBinDir)\uic.exe&quot; -o &quot;%(QtUiFile.GeneratedFile)&quot; &quot;%(QtUiFile.FullPath)&quot;" />
+  </Target>
+  <Target Name="QtRunMoc" BeforeTargets="ClCompile" Inputs="@(QtMocHeader)" Outputs="@(QtMocHeader->'%(GeneratedFile)')">
+    <Message Text="moc %(QtMocHeader.Filename)%(QtMocHeader.Extension)" Importance="high" />
+    <Exec Command="&quot;$(QtBinDir)\moc.exe&quot; -DUNICODE -D_UNICODE -o &quot;%(QtMocHeader.GeneratedFile)&quot; &quot;%(QtMocHeader.FullPath)&quot;" />
+  </Target>
+  <Target Name="QtCleanGenerated" AfterTargets="Clean">
+    <RemoveDir Directories="$(QtGeneratedDir)" />
+  </Target>
+  <!-- Compile .ts → .qm (lrelease), then .qrc → .cpp (rcc) -->
+  <Target Name="QtRunLrelease" BeforeTargets="QtRunRcc" Inputs="$(ProjectDir)resources\translations\plugin_uk.ts" Outputs="$(ProjectDir)resources\translations\plugin_uk.qm">
+    <Message Text="lrelease plugin_uk.ts" Importance="high" />
+    <Exec Command="&quot;$(QtBinDir)\lrelease.exe&quot; &quot;$(ProjectDir)resources\translations\plugin_uk.ts&quot; -qm &quot;$(ProjectDir)resources\translations\plugin_uk.qm&quot;" />
+  </Target>
+  <Target Name="QtRunRcc" BeforeTargets="ClCompile" Inputs="$(ProjectDir)resources\translations.qrc" Outputs="$(QtGeneratedDir)\qrc_translations.cpp">
+    <Message Text="rcc translations.qrc" Importance="high" />
+    <Exec Command="&quot;$(QtBinDir)\rcc.exe&quot; --name translations -o &quot;$(QtGeneratedDir)\qrc_translations.cpp&quot; &quot;$(ProjectDir)resources\translations.qrc&quot;" />
+  </Target>
+</Project>

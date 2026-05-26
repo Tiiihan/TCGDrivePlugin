@@ -1,0 +1,33 @@
+# Visual Studio local state
+.vs/
+*.user
+*.suo
+*.VC.db
+*.VC.db-*
+
+# Build outputs
+x64/
+Debug/
+Release/
+*.obj
+*.pdb
+*.ilk
+*.iobj
+*.ipdb
+*.exp
+*.wfx64
+
+# Packaged archives
+distributed_zip/
+_compressed/
+*.zip
+
+# Logs and temporary files
+*.log
+*.tmp
+*.cache
+*.tlog
+
+# OS files
+Thumbs.db
+Desktop.ini

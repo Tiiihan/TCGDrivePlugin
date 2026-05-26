@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SettingsDialog</class>
+ <widget class="QDialog" name="SettingsDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>480</width>
+    <height>450</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Google Drive plugin settings</string>
+  </property>
+  <layout class="QVBoxLayout" name="rootLayout">
+   <item>
+    <widget class="QLabel" name="accountsHeaderLabel">
+     <property name="text">
+      <string>Connected Google accounts:</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QListWidget" name="accountsList"/>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="accountButtonsLayout">
+     <item>
+      <widget class="QPushButton" name="addAccountButton">
+       <property name="text">
+        <string>Add Account</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="removeAccountButton">
+       <property name="text">
+        <string>Remove Account</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="setDefaultButton">
+       <property name="text">
+        <string>Set as Default</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="accountButtonsSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="settingsGroupBox">
+     <property name="title">
+      <string>Plugin Settings</string>
+     </property>
+     <layout class="QFormLayout" name="settingsFormLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="cacheTtlLabel">
+        <property name="text">
+         <string>Cache TTL (seconds):</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QSpinBox" name="cacheTtlSpin">
+        <property name="minimum">
+         <number>10</number>
+        </property>
+        <property name="maximum">
+         <number>3600</number>
+        </property>
+        <property name="value">
+         <number>60</number>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="languageLabel">
+        <property name="text">
+         <string>Language:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QComboBox" name="languageCombo">
+        <item>
+         <property name="text">
+          <string notr="true">Українська</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string notr="true">English</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="logLevelLabel">
+        <property name="text">
+         <string>Log level:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QComboBox" name="logLevelCombo">
+        <item>
+         <property name="text">
+          <string notr="true">DEBUG</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string notr="true">INFO</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string notr="true">ERROR</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="3" column="0" colspan="2">
+       <widget class="QCheckBox" name="exportDocsCheck">
+        <property name="text">
+         <string>Export Google Docs as .docx (otherwise PDF)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0" colspan="2">
+       <widget class="QCheckBox" name="exportSheetsCheck">
+        <property name="text">
+         <string>Export Google Sheets as .xlsx (otherwise PDF)</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>16</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

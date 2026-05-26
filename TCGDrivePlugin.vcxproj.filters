@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{1A1A1A1A-0000-0000-0000-000000000001}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\core">
+      <UniqueIdentifier>{1A1A1A1A-0000-0000-0000-000000000002}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\auth">
+      <UniqueIdentifier>{1A1A1A1A-0000-0000-0000-000000000003}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\api">
+      <UniqueIdentifier>{1A1A1A1A-0000-0000-0000-000000000004}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\gui">
+      <UniqueIdentifier>{1A1A1A1A-0000-0000-0000-000000000005}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\storage">
+      <UniqueIdentifier>{1A1A1A1A-0000-0000-0000-000000000006}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\utils">
+      <UniqueIdentifier>{1A1A1A1A-0000-0000-0000-000000000007}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resources">
+      <UniqueIdentifier>{1A1A1A1A-0000-0000-0000-000000000008}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\core\plugin.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\filesystem_bridge.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\auth\oauth_manager.h">
+      <Filter>src\auth</Filter>
+    </ClInclude>
+    <ClInclude Include="src\auth\token_store.h">
+      <Filter>src\auth</Filter>
+    </ClInclude>
+    <ClInclude Include="src\api\drive_client.h">
+      <Filter>src\api</Filter>
+    </ClInclude>
+    <ClInclude Include="src\api\drive_models.h">
+      <Filter>src\api</Filter>
+    </ClInclude>
+    <ClInclude Include="src\api\http_client.h">
+      <Filter>src\api</Filter>
+    </ClInclude>
+    <ClInclude Include="src\api\metadata_cache.h">
+      <Filter>src\api</Filter>
+    </ClInclude>
+    <ClInclude Include="src\api\i_drive_client.h">
+      <Filter>src\api</Filter>
+    </ClInclude>
+    <ClInclude Include="src\api\stub_drive_client.h">
+      <Filter>src\api</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gui\auth_dialog.h">
+      <Filter>src\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gui\settings_dialog.h">
+      <Filter>src\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gui\progress_dialog.h">
+      <Filter>src\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gui\gui_manager.h">
+      <Filter>src\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\storage\config_manager.h">
+      <Filter>src\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\logger.h">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\string_utils.h">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\auth\webview2_auth_window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\core\plugin.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\filesystem_bridge.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\auth\oauth_manager.cpp">
+      <Filter>src\auth</Filter>
+    </ClCompile>
+    <ClCompile Include="src\auth\token_store.cpp">
+      <Filter>src\auth</Filter>
+    </ClCompile>
+    <ClCompile Include="src\api\drive_client.cpp">
+      <Filter>src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="src\api\http_client.cpp">
+      <Filter>src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="src\api\metadata_cache.cpp">
+      <Filter>src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="src\api\stub_drive_client.cpp">
+      <Filter>src\api</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gui\auth_dialog.cpp">
+      <Filter>src\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gui\settings_dialog.cpp">
+      <Filter>src\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gui\progress_dialog.cpp">
+      <Filter>src\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gui\gui_manager.cpp">
+      <Filter>src\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\storage\config_manager.cpp">
+      <Filter>src\storage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\logger.cpp">
+      <Filter>src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\string_utils.cpp">
+      <Filter>src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\auth\webview2_auth_window.cpp" />
+    <ClCompile Include="$(QtGeneratedDir)\qrc_translations.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\core\TCGDrivePlugin.def">
+      <Filter>src\core</Filter>
+    </None>
+    <None Include="resources\settings_dialog.ui">
+      <Filter>resources</Filter>
+    </None>
+    <None Include="resources\progress_dialog.ui">
+      <Filter>resources</Filter>
+    </None>
+    <None Include="resources\translations.qrc" />
+    <None Include="resources\translations\plugin_uk.ts" />
+  </ItemGroup>
+</Project>

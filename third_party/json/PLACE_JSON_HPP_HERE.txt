@@ -1,0 +1,6 @@
+Place the nlohmann/json single-header release here.
+
+Expected layout:
+  third_party/json/include/nlohmann/json.hpp
+
+Download json.hpp from: https://github.com/nlohmann/json/releases

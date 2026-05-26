@@ -1,0 +1,11 @@
+Place OpenSSL Windows binaries here.
+
+Expected layout:
+  third_party/openssl/include/openssl/*.h
+  third_party/openssl/lib/libssl.lib
+  third_party/openssl/lib/libcrypto.lib
+  third_party/openssl/bin/libssl-3-x64.dll      (copy next to TCGDrivePlugin.wfx)
+  third_party/openssl/bin/libcrypto-3-x64.dll   (copy next to TCGDrivePlugin.wfx)
+
+Recommended source:
+  https://slproweb.com/products/Win32OpenSSL.html  (Win64 OpenSSL v3.x)

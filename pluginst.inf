@@ -1,0 +1,17 @@
+; ===========================================================================
+;  Total Commander plugin auto-installer manifest.
+;
+;  When a user opens the distribution ZIP inside Total Commander, TC reads
+;  this file and offers a one-click install: it extracts everything beside
+;  pluginst.inf into <TC>\plugins\wfx\TCGDrivePlugin\ and registers the
+;  plugin in wincmd.ini ([FileSystemPlugins] / [FileSystemPlugins64]).
+;
+;  Reference: https://www.ghisler.ch/wiki/index.php/Plugins_(install_via_pluginst.inf)
+; ===========================================================================
+[plugininstall]
+type=wfx
+file=TCGDrivePlugin.wfx64
+description=Google Drive integration for Total Commander — browse, upload, download, rename and delete your Google Drive files directly from the TC panel.
+defaultdir=TCGDrivePlugin
+defaultextension=wfx64
+version=1.0.0
