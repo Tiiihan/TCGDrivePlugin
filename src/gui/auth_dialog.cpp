@@ -152,5 +152,3 @@ void AuthDialog::onCancelClicked() {
     emit authCompleted(false, QString());
     reject();
 }
-
-#include "moc_auth_dialog.cpp"

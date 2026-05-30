@@ -127,7 +127,6 @@
       <Filter>src\utils</Filter>
     </ClCompile>
     <ClCompile Include="src\auth\webview2_auth_window.cpp" />
-    <ClCompile Include="$(QtGeneratedDir)\qrc_translations.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\core\TCGDrivePlugin.def">
@@ -140,6 +139,11 @@
       <Filter>resources</Filter>
     </None>
     <None Include="resources\translations.qrc" />
-    <None Include="resources\translations\plugin_uk.ts" />
+    <None Include="resources\translations\plugin_uk.ts">
+      <Filter>resources</Filter>
+    </None>
+    <None Include="resources\translations\plugin_en.ts">
+      <Filter>resources</Filter>
+    </None>
   </ItemGroup>
 </Project>

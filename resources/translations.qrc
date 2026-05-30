@@ -2,5 +2,6 @@
 <RCC version="1.0">
   <qresource prefix="/">
     <file>translations/plugin_uk.qm</file>
+    <file>translations/plugin_en.qm</file>
   </qresource>
 </RCC>

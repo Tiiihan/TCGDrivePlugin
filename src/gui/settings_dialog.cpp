@@ -161,5 +161,3 @@ void SettingsDialog::onAccepted() {
     saveSettings();
     accept();
 }
-
-#include "moc_settings_dialog.cpp"

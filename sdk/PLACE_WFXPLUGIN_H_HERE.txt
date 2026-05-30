@@ -1,8 +1,0 @@
-Place wfxplugin.h from the Total Commander WFX Plugin Writer's Guide here.
-
-Download the SDK from:
-  https://www.ghisler.com/plugins.htm  (section "File system plugins")
-
-Extract the archive and copy wfxplugin.h into this folder. The
-TCGDrivePlugin.vcxproj already adds $(ProjectDir)sdk to the include
-search path.

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_US">
+<TS version="2.1" language="en_US" sourcelanguage="en_US">
 <context>
     <name>AuthDialog</name>
     <message>
@@ -8,12 +8,12 @@
         <translation>Google Drive authorization</translation>
     </message>
     <message>
-        <source>A browser window has been opened for Google authorization.</source>
-        <translation>A browser window has been opened for Google authorization.</translation>
+        <source>A secure Google sign-in window is opening. Please complete the authorization in that window.</source>
+        <translation>A secure Google sign-in window is opening. Please complete the authorization in that window.</translation>
     </message>
     <message>
-        <source>Please complete the login in your browser, then return here.</source>
-        <translation>Please complete the login in your browser, then return here.</translation>
+        <source>Waiting for you to finish signing in — this dialog will close automatically.</source>
+        <translation>Waiting for you to finish signing in — this dialog will close automatically.</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -51,12 +51,20 @@
         <translation>Cache TTL (seconds):</translation>
     </message>
     <message>
+        <source>Language:</source>
+        <translation>Language:</translation>
+    </message>
+    <message>
         <source>Log level:</source>
         <translation>Log level:</translation>
     </message>
     <message>
-        <source>Language:</source>
-        <translation>Language:</translation>
+        <source>Export Google Docs as .docx (otherwise PDF)</source>
+        <translation>Export Google Docs as .docx (otherwise PDF)</translation>
+    </message>
+    <message>
+        <source>Export Google Sheets as .xlsx (otherwise PDF)</source>
+        <translation>Export Google Sheets as .xlsx (otherwise PDF)</translation>
     </message>
     <message>
         <source>  (default)</source>
@@ -74,12 +82,12 @@
         <translation>Remaining: %1</translation>
     </message>
     <message>
-        <source>Cancelling...</source>
-        <translation>Cancelling...</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Cancel</translation>
+    </message>
+    <message>
+        <source>Cancelling...</source>
+        <translation>Cancelling...</translation>
     </message>
 </context>
 <context>

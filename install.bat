@@ -107,10 +107,12 @@ if not "%WINCMD_INI%"=="" (
 )
 
 rem --- %APPDATA% directory + starter config ----------------------------------
-rem  OAuth credentials are compiled into the plugin (DEFAULT_CLIENT_ID /
-rem  DEFAULT_CLIENT_SECRET in config_manager.h), so config.ini only needs
-rem  the optional settings. (Add client_id= / client_secret= lines yourself
-rem  only if you want to use your own Google Cloud project.)
+rem  OAuth credentials live in config.ini (NOT compiled into the plugin):
+rem    [General]
+rem    client_id=<your-client-id>.apps.googleusercontent.com
+rem    client_secret=<your-client-secret>
+rem  The starter config below intentionally omits them, so the file is safe
+rem  to ship in the installer. Add the two lines manually before first sign-in.
 set "DATA_DIR=%APPDATA%\TCGDrivePlugin"
 if not exist "%DATA_DIR%" mkdir "%DATA_DIR%"
 if not exist "%DATA_DIR%\config.ini" (

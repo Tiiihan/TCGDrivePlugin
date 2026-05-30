@@ -30,6 +30,9 @@ _zipcheck/
 *.cache
 *.tlog
 
+# Qt-generated artefacts (lrelease compiles them from .ts on every build)
+*.qm
+
 # OS files
 Thumbs.db
 Desktop.ini

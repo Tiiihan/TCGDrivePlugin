@@ -94,5 +94,3 @@ QString ProgressDialog::humanDuration(qint64 seconds) {
         .arg(m, 2, 10, QLatin1Char('0'))
         .arg(s, 2, 10, QLatin1Char('0'));
 }
-
-#include "moc_progress_dialog.cpp"

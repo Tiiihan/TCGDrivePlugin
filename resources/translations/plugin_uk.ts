@@ -90,4 +90,39 @@
         <translation>Скасування...</translation>
     </message>
 </context>
+<context>
+    <name>Messages</name>
+    <message>
+        <source>Authentication failed. Please try again.</source>
+        <translation>Помилка автентифікації. Спробуйте ще раз.</translation>
+    </message>
+    <message>
+        <source>Network error. Check your internet connection.</source>
+        <translation>Помилка мережі. Перевірте інтернет-з'єднання.</translation>
+    </message>
+    <message>
+        <source>Access denied. You may need to re-authorize the plugin.</source>
+        <translation>Доступ заборонено. Можливо, потрібно повторно авторизувати плагін.</translation>
+    </message>
+    <message>
+        <source>File not found.</source>
+        <translation>Файл не знайдено.</translation>
+    </message>
+    <message>
+        <source>Upload failed.</source>
+        <translation>Не вдалося завантажити файл на сервер.</translation>
+    </message>
+    <message>
+        <source>Download failed.</source>
+        <translation>Не вдалося завантажити файл.</translation>
+    </message>
+    <message>
+        <source>The Google Drive API rate limit was reached. Please try again later.</source>
+        <translation>Досягнуто ліміту запитів до Google Drive API. Спробуйте пізніше.</translation>
+    </message>
+    <message>
+        <source>Operation cancelled.</source>
+        <translation>Операцію скасовано.</translation>
+    </message>
+</context>
 </TS>

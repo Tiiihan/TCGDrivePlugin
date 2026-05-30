@@ -228,15 +228,24 @@ void GUIManager::applyLanguage(const std::wstring& lang) {
         m_translator = nullptr;
     }
 
-    if (lang != L"uk") return;
+    // Map config language code → translation file name.
+    QString qmName;
+    if      (lang == L"uk") qmName = QStringLiteral("plugin_uk.qm");
+    else if (lang == L"en") qmName = QStringLiteral("plugin_en.qm");
+    else {
+        Logger::instance().info("GUIManager: unknown language, falling back to source (English) UI");
+        return;
+    }
 
     m_translator = new QTranslator;
-    if (!m_translator->load(QStringLiteral(":/translations/plugin_uk.qm"))) {
-        Logger::instance().warn("GUIManager: Ukrainian translation file not found in resources");
+    const QString qmPath = QStringLiteral(":/translations/") + qmName;
+    if (!m_translator->load(qmPath)) {
+        Logger::instance().warn("GUIManager: translation file " + qmName.toStdString() +
+                                " not found in resources");
         delete m_translator;
         m_translator = nullptr;
         return;
     }
     QCoreApplication::installTranslator(m_translator);
-    Logger::instance().info("GUIManager: Ukrainian UI active");
+    Logger::instance().info("GUIManager: UI active with " + qmName.toStdString());
 }
