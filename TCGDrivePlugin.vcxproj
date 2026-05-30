@@ -33,7 +33,53 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  <Import Project="$(QTDIR)\msvc2022_64\lib\cmake\Qt6\qt6.props" Condition="Exists('$(QTDIR)\msvc2022_64\lib\cmake\Qt6\qt6.props')" />
+  <PropertyGroup Label="QtDetection">
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and '$(QTDIR)'!='' and Exists('$(QTDIR)\msvc2022_64\bin\uic.exe')">$(QTDIR)\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and '$(QTDIR)'!='' and Exists('$(QTDIR)\bin\uic.exe')">$(QTDIR)</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and '$(Qt6_DIR)'!='' and Exists('$(Qt6_DIR)\Qt6Config.cmake')">$([System.IO.Path]::GetFullPath('$(Qt6_DIR)\..\..\..'))</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and '$(Qt_DIR)'!='' and Exists('$(Qt_DIR)\Qt6Config.cmake')">$([System.IO.Path]::GetFullPath('$(Qt_DIR)\..\..\..'))</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('D:\Qt\6.11.0\msvc2022_64\bin\uic.exe')">D:\Qt\6.11.0\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('D:\Qt\6.10.0\msvc2022_64\bin\uic.exe')">D:\Qt\6.10.0\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('D:\Qt\6.9.3\msvc2022_64\bin\uic.exe')">D:\Qt\6.9.3\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('D:\Qt\6.9.2\msvc2022_64\bin\uic.exe')">D:\Qt\6.9.2\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('D:\Qt\6.9.1\msvc2022_64\bin\uic.exe')">D:\Qt\6.9.1\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('D:\Qt\6.9.0\msvc2022_64\bin\uic.exe')">D:\Qt\6.9.0\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('D:\Qt\6.8.3\msvc2022_64\bin\uic.exe')">D:\Qt\6.8.3\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('D:\Qt\6.8.2\msvc2022_64\bin\uic.exe')">D:\Qt\6.8.2\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('D:\Qt\6.8.1\msvc2022_64\bin\uic.exe')">D:\Qt\6.8.1\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('D:\Qt\6.8.0\msvc2022_64\bin\uic.exe')">D:\Qt\6.8.0\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('D:\Qt\6.7.3\msvc2022_64\bin\uic.exe')">D:\Qt\6.7.3\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('D:\Qt\6.7.2\msvc2022_64\bin\uic.exe')">D:\Qt\6.7.2\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('D:\Qt\6.7.1\msvc2022_64\bin\uic.exe')">D:\Qt\6.7.1\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('D:\Qt\6.7.0\msvc2022_64\bin\uic.exe')">D:\Qt\6.7.0\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('D:\Qt\6.6.3\msvc2022_64\bin\uic.exe')">D:\Qt\6.6.3\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('D:\Qt\6.6.2\msvc2022_64\bin\uic.exe')">D:\Qt\6.6.2\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('D:\Qt\6.6.1\msvc2022_64\bin\uic.exe')">D:\Qt\6.6.1\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('D:\Qt\6.6.0\msvc2022_64\bin\uic.exe')">D:\Qt\6.6.0\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('D:\Qt\6.5.3\msvc2022_64\bin\uic.exe')">D:\Qt\6.5.3\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('D:\Qt\6.5.2\msvc2022_64\bin\uic.exe')">D:\Qt\6.5.2\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('C:\Qt\6.11.0\msvc2022_64\bin\uic.exe')">C:\Qt\6.11.0\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('C:\Qt\6.10.0\msvc2022_64\bin\uic.exe')">C:\Qt\6.10.0\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('C:\Qt\6.9.3\msvc2022_64\bin\uic.exe')">C:\Qt\6.9.3\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('C:\Qt\6.9.2\msvc2022_64\bin\uic.exe')">C:\Qt\6.9.2\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('C:\Qt\6.9.1\msvc2022_64\bin\uic.exe')">C:\Qt\6.9.1\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('C:\Qt\6.9.0\msvc2022_64\bin\uic.exe')">C:\Qt\6.9.0\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('C:\Qt\6.8.3\msvc2022_64\bin\uic.exe')">C:\Qt\6.8.3\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('C:\Qt\6.8.2\msvc2022_64\bin\uic.exe')">C:\Qt\6.8.2\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('C:\Qt\6.8.1\msvc2022_64\bin\uic.exe')">C:\Qt\6.8.1\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('C:\Qt\6.8.0\msvc2022_64\bin\uic.exe')">C:\Qt\6.8.0\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('C:\Qt\6.7.3\msvc2022_64\bin\uic.exe')">C:\Qt\6.7.3\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('C:\Qt\6.7.2\msvc2022_64\bin\uic.exe')">C:\Qt\6.7.2\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('C:\Qt\6.7.1\msvc2022_64\bin\uic.exe')">C:\Qt\6.7.1\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('C:\Qt\6.7.0\msvc2022_64\bin\uic.exe')">C:\Qt\6.7.0\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('C:\Qt\6.6.3\msvc2022_64\bin\uic.exe')">C:\Qt\6.6.3\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('C:\Qt\6.6.2\msvc2022_64\bin\uic.exe')">C:\Qt\6.6.2\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('C:\Qt\6.6.1\msvc2022_64\bin\uic.exe')">C:\Qt\6.6.1\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('C:\Qt\6.6.0\msvc2022_64\bin\uic.exe')">C:\Qt\6.6.0\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('C:\Qt\6.5.3\msvc2022_64\bin\uic.exe')">C:\Qt\6.5.3\msvc2022_64</QtInstallDir>
+    <QtInstallDir Condition="'$(QtInstallDir)'=='' and Exists('C:\Qt\6.5.2\msvc2022_64\bin\uic.exe')">C:\Qt\6.5.2\msvc2022_64</QtInstallDir>
+  </PropertyGroup>
+  <Import Project="$(QtInstallDir)\lib\cmake\Qt6\qt6.props" Condition="'$(QtInstallDir)'!='' and Exists('$(QtInstallDir)\lib\cmake\Qt6\qt6.props')" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Label="Shared">
@@ -64,7 +110,7 @@
       <PreprocessorDefinitions>WIN32;_WINDOWS;_USRDLL;TCGDRIVEPLUGIN_EXPORTS;_DEBUG;UNICODE;_UNICODE;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)sdk;$(ProjectDir)generated;$(ProjectDir)third_party\curl\include;$(ProjectDir)third_party\json\include;$(ProjectDir)third_party\openssl\include;$(ProjectDir)third_party\webview2\include;$(QTDIR)\msvc2022_64\include;$(QTDIR)\msvc2022_64\include\QtCore;$(QTDIR)\msvc2022_64\include\QtGui;$(QTDIR)\msvc2022_64\include\QtWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)sdk;$(ProjectDir)generated;$(ProjectDir)third_party\curl\include;$(ProjectDir)third_party\json\include;$(ProjectDir)third_party\openssl\include;$(ProjectDir)third_party\webview2\include;$(QtInstallDir)\include;$(QtInstallDir)\include\QtCore;$(QtInstallDir)\include\QtGui;$(QtInstallDir)\include\QtWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <AdditionalOptions>/utf-8 /Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
@@ -72,7 +118,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)third_party\curl\lib;$(ProjectDir)third_party\openssl\lib;$(QTDIR)\msvc2022_64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)third_party\curl\lib;$(ProjectDir)third_party\openssl\lib;$(QtInstallDir)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libcurl.lib;libssl.lib;libcrypto.lib;Qt6Core.lib;Qt6Gui.lib;Qt6Widgets.lib;Crypt32.lib;Shell32.lib;ole32.lib;$(ProjectDir)third_party\webview2\lib\x64\WebView2LoaderStatic.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>$(ProjectDir)src\core\TCGDrivePlugin.def</ModuleDefinitionFile>
     </Link>
@@ -86,7 +132,7 @@
       <PreprocessorDefinitions>WIN32;_WINDOWS;_USRDLL;TCGDRIVEPLUGIN_EXPORTS;NDEBUG;UNICODE;_UNICODE;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)sdk;$(ProjectDir)generated;$(ProjectDir)third_party\curl\include;$(ProjectDir)third_party\json\include;$(ProjectDir)third_party\openssl\include;$(ProjectDir)third_party\webview2\include;$(QTDIR)\msvc2022_64\include;$(QTDIR)\msvc2022_64\include\QtCore;$(QTDIR)\msvc2022_64\include\QtGui;$(QTDIR)\msvc2022_64\include\QtWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)sdk;$(ProjectDir)generated;$(ProjectDir)third_party\curl\include;$(ProjectDir)third_party\json\include;$(ProjectDir)third_party\openssl\include;$(ProjectDir)third_party\webview2\include;$(QtInstallDir)\include;$(QtInstallDir)\include\QtCore;$(QtInstallDir)\include\QtGui;$(QtInstallDir)\include\QtWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>MaxSpeed</Optimization>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <AdditionalOptions>/utf-8 /Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
@@ -96,7 +142,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)third_party\curl\lib;$(ProjectDir)third_party\openssl\lib;$(QTDIR)\msvc2022_64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)third_party\curl\lib;$(ProjectDir)third_party\openssl\lib;$(QtInstallDir)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libcurl.lib;libssl.lib;libcrypto.lib;Qt6Core.lib;Qt6Gui.lib;Qt6Widgets.lib;Crypt32.lib;Shell32.lib;ole32.lib;$(ProjectDir)third_party\webview2\lib\x64\WebView2LoaderStatic.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>$(ProjectDir)src\core\TCGDrivePlugin.def</ModuleDefinitionFile>
     </Link>
@@ -148,51 +194,60 @@
     <None Include="resources\translations\plugin_uk.ts" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <Import Project="$(QTDIR)\msvc2022_64\lib\cmake\Qt6\qt6.targets" Condition="Exists('$(QTDIR)\msvc2022_64\lib\cmake\Qt6\qt6.targets')" />
+  <Import Project="$(QtInstallDir)\lib\cmake\Qt6\qt6.targets" Condition="'$(QtInstallDir)'!='' and Exists('$(QtInstallDir)\lib\cmake\Qt6\qt6.targets')" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
   <PropertyGroup>
-    <QtBinDir>$(QTDIR)\msvc2022_64\bin</QtBinDir>
+    <QtBinDir>$(QtInstallDir)\bin</QtBinDir>
     <QtGeneratedDir>$(ProjectDir)generated</QtGeneratedDir>
   </PropertyGroup>
+  <!-- Paths are RELATIVE so the uic/moc/rcc/lrelease command text stays pure
+       ASCII. The Exec tasks below set WorkingDirectory="$(ProjectDir)"; the
+       project directory (which may contain spaces / Cyrillic / '+' / '!') is
+       handed to the child process as a Unicode CWD and therefore never enters
+       the cmd.exe batch file MSBuild generates in the system ANSI code page.
+       This lets the project build from "dirty" paths, not only ASCII ones. -->
   <ItemGroup>
-    <QtUiFile Include="$(ProjectDir)resources\settings_dialog.ui">
-      <GeneratedFile>$(QtGeneratedDir)\ui_settings_dialog.h</GeneratedFile>
+    <QtUiFile Include="resources\settings_dialog.ui">
+      <GeneratedFile>generated\ui_settings_dialog.h</GeneratedFile>
     </QtUiFile>
-    <QtUiFile Include="$(ProjectDir)resources\progress_dialog.ui">
-      <GeneratedFile>$(QtGeneratedDir)\ui_progress_dialog.h</GeneratedFile>
+    <QtUiFile Include="resources\progress_dialog.ui">
+      <GeneratedFile>generated\ui_progress_dialog.h</GeneratedFile>
     </QtUiFile>
-    <QtMocHeader Include="$(ProjectDir)src\gui\auth_dialog.h">
-      <GeneratedFile>$(QtGeneratedDir)\moc_auth_dialog.cpp</GeneratedFile>
+    <QtMocHeader Include="src\gui\auth_dialog.h">
+      <GeneratedFile>generated\moc_auth_dialog.cpp</GeneratedFile>
     </QtMocHeader>
-    <QtMocHeader Include="$(ProjectDir)src\gui\settings_dialog.h">
-      <GeneratedFile>$(QtGeneratedDir)\moc_settings_dialog.cpp</GeneratedFile>
+    <QtMocHeader Include="src\gui\settings_dialog.h">
+      <GeneratedFile>generated\moc_settings_dialog.cpp</GeneratedFile>
     </QtMocHeader>
-    <QtMocHeader Include="$(ProjectDir)src\gui\progress_dialog.h">
-      <GeneratedFile>$(QtGeneratedDir)\moc_progress_dialog.cpp</GeneratedFile>
+    <QtMocHeader Include="src\gui\progress_dialog.h">
+      <GeneratedFile>generated\moc_progress_dialog.cpp</GeneratedFile>
     </QtMocHeader>
   </ItemGroup>
   <Target Name="QtPrepareGeneratedDir" BeforeTargets="QtRunUic;QtRunMoc">
     <MakeDir Directories="$(QtGeneratedDir)" />
   </Target>
+  <Target Name="QtValidateInstall" BeforeTargets="QtRunUic;QtRunMoc;QtRunLrelease;QtRunRcc;ClCompile">
+    <Error Condition="'$(QtInstallDir)'=='' or !Exists('$(QtBinDir)\uic.exe')" Text="Qt for MSVC 2022 x64 was not found. Install Qt with the msvc2022_64 kit under C:\Qt, set QTDIR to your Qt root, or build with /p:QtInstallDir=C:\Qt\6.x.x\msvc2022_64." />
+  </Target>
   <Target Name="QtRunUic" BeforeTargets="ClCompile" Inputs="@(QtUiFile)" Outputs="@(QtUiFile->'%(GeneratedFile)')">
     <Message Text="uic %(QtUiFile.Filename)%(QtUiFile.Extension)" Importance="high" />
-    <Exec Command="&quot;$(QtBinDir)\uic.exe&quot; -o &quot;%(QtUiFile.GeneratedFile)&quot; &quot;%(QtUiFile.FullPath)&quot;" />
+    <Exec WorkingDirectory="$(ProjectDir)" Command="&quot;$(QtBinDir)\uic.exe&quot; -o &quot;%(QtUiFile.GeneratedFile)&quot; &quot;%(QtUiFile.Identity)&quot;" />
   </Target>
   <Target Name="QtRunMoc" BeforeTargets="ClCompile" Inputs="@(QtMocHeader)" Outputs="@(QtMocHeader->'%(GeneratedFile)')">
     <Message Text="moc %(QtMocHeader.Filename)%(QtMocHeader.Extension)" Importance="high" />
-    <Exec Command="&quot;$(QtBinDir)\moc.exe&quot; -DUNICODE -D_UNICODE -o &quot;%(QtMocHeader.GeneratedFile)&quot; &quot;%(QtMocHeader.FullPath)&quot;" />
+    <Exec WorkingDirectory="$(ProjectDir)" Command="&quot;$(QtBinDir)\moc.exe&quot; -DUNICODE -D_UNICODE -o &quot;%(QtMocHeader.GeneratedFile)&quot; &quot;%(QtMocHeader.Identity)&quot;" />
   </Target>
   <Target Name="QtCleanGenerated" AfterTargets="Clean">
     <RemoveDir Directories="$(QtGeneratedDir)" />
   </Target>
   <!-- Compile .ts → .qm (lrelease), then .qrc → .cpp (rcc) -->
-  <Target Name="QtRunLrelease" BeforeTargets="QtRunRcc" Inputs="$(ProjectDir)resources\translations\plugin_uk.ts" Outputs="$(ProjectDir)resources\translations\plugin_uk.qm">
+  <Target Name="QtRunLrelease" BeforeTargets="QtRunRcc" Inputs="resources\translations\plugin_uk.ts" Outputs="resources\translations\plugin_uk.qm">
     <Message Text="lrelease plugin_uk.ts" Importance="high" />
-    <Exec Command="&quot;$(QtBinDir)\lrelease.exe&quot; &quot;$(ProjectDir)resources\translations\plugin_uk.ts&quot; -qm &quot;$(ProjectDir)resources\translations\plugin_uk.qm&quot;" />
+    <Exec WorkingDirectory="$(ProjectDir)" Command="&quot;$(QtBinDir)\lrelease.exe&quot; &quot;resources\translations\plugin_uk.ts&quot; -qm &quot;resources\translations\plugin_uk.qm&quot;" />
   </Target>
-  <Target Name="QtRunRcc" BeforeTargets="ClCompile" Inputs="$(ProjectDir)resources\translations.qrc" Outputs="$(QtGeneratedDir)\qrc_translations.cpp">
+  <Target Name="QtRunRcc" BeforeTargets="ClCompile" Inputs="resources\translations.qrc" Outputs="generated\qrc_translations.cpp">
     <Message Text="rcc translations.qrc" Importance="high" />
-    <Exec Command="&quot;$(QtBinDir)\rcc.exe&quot; --name translations -o &quot;$(QtGeneratedDir)\qrc_translations.cpp&quot; &quot;$(ProjectDir)resources\translations.qrc&quot;" />
+    <Exec WorkingDirectory="$(ProjectDir)" Command="&quot;$(QtBinDir)\rcc.exe&quot; --name translations -o &quot;generated\qrc_translations.cpp&quot; &quot;resources\translations.qrc&quot;" />
   </Target>
 </Project>

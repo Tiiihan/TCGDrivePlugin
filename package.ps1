@@ -32,6 +32,13 @@ $root        = Split-Path -Parent $MyInvocation.MyCommand.Definition
 $releaseDir  = Join-Path $root "x64\$Config"
 $wfx         = Join-Path $releaseDir 'TCGDrivePlugin.wfx64'
 
+# Fallback source for the Qt runtime: when x64\Release was not populated by
+# windeployqt (e.g. right after a clean rebuild), pull the DLLs straight from
+# the Qt installation. Mirrors the $(QTDIR)\msvc2022_64 layout the .vcxproj uses.
+$qtRoot      = if ($env:QTDIR) { Join-Path $env:QTDIR 'msvc2022_64' } else { $null }
+$qtBin       = if ($qtRoot)    { Join-Path $qtRoot 'bin' }               else { $null }
+$qtPlatforms = if ($qtRoot)    { Join-Path $qtRoot 'plugins\platforms' } else { $null }
+
 if (-not (Test-Path $wfx)) {
     throw "TCGDrivePlugin.wfx64 not found in $releaseDir. " +
           "Build the $Config|x64 configuration first."
@@ -68,27 +75,29 @@ try {
     Copy-Item $wfx                              $stage -Force
     Copy-Item (Join-Path $root 'pluginst.inf')  $stage -Force
 
-    # Ship install.bat as a fallback for users who prefer not to open the
-    # ZIP in Total Commander (or whose TC is broken/missing).
-    if (Test-Path (Join-Path $root 'install.bat')) {
-        Copy-Item (Join-Path $root 'install.bat') $stage -Force
-    }
-
     # ----- Qt runtime -------------------------------------------------------
     foreach ($dll in 'Qt6Core.dll','Qt6Gui.dll','Qt6Widgets.dll') {
-        Copy-IfExists -Primary (Join-Path $releaseDir $dll) `
-                      -Dest    $stage `
-                      -Label   $dll | Out-Null
+        $fb = if ($qtBin) { Join-Path $qtBin $dll } else { $null }
+        Copy-IfExists -Primary  (Join-Path $releaseDir $dll) `
+                      -Fallback $fb `
+                      -Dest     $stage `
+                      -Label    $dll | Out-Null
     }
 
-    Copy-IfExists -Primary (Join-Path $releaseDir 'platforms\qwindows.dll') `
-                  -Dest    $platformsStage `
-                  -Label   'platforms\qwindows.dll' | Out-Null
+    $qwinFb = if ($qtPlatforms) { Join-Path $qtPlatforms 'qwindows.dll' } else { $null }
+    Copy-IfExists -Primary  (Join-Path $releaseDir 'platforms\qwindows.dll') `
+                  -Fallback $qwinFb `
+                  -Dest     $platformsStage `
+                  -Label    'platforms\qwindows.dll' | Out-Null
 
     # Qt 6 on Windows usually links ICU statically; copy any that the
     # particular Qt build did require (icudt*.dll, icuuc.dll, icuin.dll).
-    Get-ChildItem -Path $releaseDir -Filter 'icu*.dll' -ErrorAction SilentlyContinue |
-        ForEach-Object { Copy-Item $_.FullName $stage -Force }
+    # Prefer what windeployqt left in x64\Release; otherwise fall back to %QTDIR%.
+    $icuFiles = @(Get-ChildItem -Path $releaseDir -Filter 'icu*.dll' -ErrorAction SilentlyContinue)
+    if ($icuFiles.Count -eq 0 -and $qtBin -and (Test-Path $qtBin)) {
+        $icuFiles = @(Get-ChildItem -Path $qtBin -Filter 'icu*.dll' -ErrorAction SilentlyContinue)
+    }
+    $icuFiles | ForEach-Object { Copy-Item $_.FullName $stage -Force }
 
     # ----- libcurl + zlib ---------------------------------------------------
     foreach ($dll in 'libcurl.dll','z.dll') {
@@ -121,8 +130,10 @@ Easiest:
   one-click install — accept the prompt and the plugin lands in
   <TC>\plugins\wfx\TCGDrivePlugin\ and is registered automatically.
 
-Alternative:
-  Extract the ZIP, close Total Commander, and run install.bat.
+Alternative (manual):
+  Extract the ZIP into <TC>\plugins\wfx\TCGDrivePlugin\, then register it in
+  Total Commander: Configuration > Options > Plugins > File system plugins
+  (WFX) > Configure / Add.
 
 REQUIREMENTS
 ------------
