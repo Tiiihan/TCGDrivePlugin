@@ -5,10 +5,10 @@
 *.VC.db
 *.VC.db-*
 
-# Build outputs
-x64/
-Debug/
-Release/
+# Build outputs (only at repo root — do NOT match third_party/.../x64/)
+/x64/
+/Debug/
+/Release/
 *.obj
 *.pdb
 *.ilk
